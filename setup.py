@@ -23,7 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'move_arm_node = urdf_example.move_arm_node:main'
+            'move_arm_node = urdf_example.arm_controller.move_arm_node:main'
         ],
     },
 )
