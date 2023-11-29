@@ -2,11 +2,11 @@ from setuptools import find_packages, setup
 from glob import glob
 import os
 
-package_name = 'gazebo_sim'
+package_name = 'urdf_example'
 
 setup(
     name=package_name,
-    version='0.0.0',
+    version='0.0.1',
     packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
@@ -23,6 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'move_arm_node = urdf_example.move_arm_node:main'
         ],
     },
 )
