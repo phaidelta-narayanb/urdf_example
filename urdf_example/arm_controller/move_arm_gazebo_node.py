@@ -10,7 +10,7 @@ class ArmControlNode(Node):
     def __init__(self):
         super().__init__("control_node")
 
-        self.get_logger().info("This will publish a new trajectory (to 0.5, 0.5) to Gazebo every often.")
+        self.get_logger().info("This will publish a new trajectory to Gazebo every often.")
 
         self._cmd_vel_pub = self.create_publisher(
             msg_type=JointTrajectory,
@@ -24,12 +24,11 @@ class ArmControlNode(Node):
     def _pub_timer_callback(self):
         self._cmd_vel_pub.publish(JointTrajectory(
             header=Header(
-                frame_id="world",
-                stamp=self.get_clock().now().to_msg()
+                frame_id="world"
             ),
             joint_names=["slider_joint", "arm_joint"],
             points=[
-                JointTrajectoryPoint(positions=(0.5, 0.5))
+                JointTrajectoryPoint(positions=(1.0, 1.0))
             ]
         ))
 
